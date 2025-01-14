@@ -6,9 +6,9 @@ import os
 import plotly.graph_objs as go
 
 # Base directories
-DATASET_DIR = './FYP_Kubernetes/cleaned_dataset'
-MODEL_DIR = './FYP_Kubernetes/One_Class_SVM_Model/'
-ACCURACY_FILE = './FYP_Kubernetes/Accuracy_Summary/one_class_svm_accuracy_summary.csv'
+DATASET_DIR = './cleaned_dataset'
+MODEL_DIR = './One_Class_SVM_Model/'
+ACCURACY_FILE = './Accuracy_Summary/one_class_svm_accuracy_summary.csv'
 
 # File naming format
 FILE_PREFIX = 'node_node_'
