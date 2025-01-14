@@ -88,7 +88,7 @@ def add_data():
             "memory_limit", "cpu_usage", "memory_usage", "network_bandwidth_usage"
         ]
         for column in scaler_columns:
-            scaler_path = f"./FYP_Kubernetes/Scalers/{column}_scaler.pkl"
+            scaler_path = f"./Scalers/{column}_scaler.pkl"
             scaler = joblib.load(scaler_path)
             df[column] = scaler.transform(df[[column]])
 
@@ -103,7 +103,7 @@ def add_data():
         # Save the cleaned data to the respective node files
         for node in df["node_name"].unique():
             node_data = df[df["node_name"] == node]
-            file_path = f"./FYP_Kubernetes/cleaned_dataset/node_{node}_dataset.csv"
+            file_path = f"./cleaned_dataset/node_{node}_dataset.csv"
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
             if os.path.exists(file_path):
                 # Append to the existing file
@@ -124,7 +124,7 @@ def add_data():
 
         # Check for existing feature-engineered dataset for deltas
         for node in feature_engineered_data["node_name"].unique():
-            file_path = f"./Dataset/Feature_Engineered/node_{node}_feature_engineered.csv"
+            file_path = f"./Feature_Engineered/node_{node}_feature_engineered.csv"
             if os.path.exists(file_path):
                 existing_data = pd.read_csv(file_path)
                 last_row = existing_data.iloc[[-1]]  # Get the last row
@@ -185,7 +185,7 @@ def add_data():
         # Save Feature-Engineered Data
         for node in feature_engineered_data["node_name"].unique():
             node_data = feature_engineered_data[feature_engineered_data["node_name"] == node]
-            file_path = f"./FYP_Kubernetes/Feature_Engineered/node_{node}_feature_engineered.csv"
+            file_path = f"./Feature_Engineered/node_{node}_feature_engineered.csv"
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
             if os.path.exists(file_path):
                 # Append to existing file
